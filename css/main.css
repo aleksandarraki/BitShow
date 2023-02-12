@@ -1,0 +1,17 @@
+header {
+  background-color: #343a40; }
+  header a {
+    font-size: 25px;
+    font-weight: bolder;
+    color: white;
+    text-decoration: none; }
+  header input {
+    border-radius: 7px;
+    border-style: none;
+    height: 35px; }
+
+footer {
+  background-color: #343a40;
+  color: white; }
+
+/*# sourceMappingURL=main.css.map */
