@@ -1,8 +1,8 @@
 const dataModule = (function () {
     class TvShow {
         constructor(name, id, coverUrl) {
-            this.name = name;
             this.id = id;
+            this.name = name;
             this.coverUrl = coverUrl;
         }
     }
@@ -13,12 +13,23 @@ const dataModule = (function () {
                 return res.json();
             })
             .then(function (showsRawObjects) {
-                return showsRawObjects.map(({ name, id, image }) => new TvShow(name, id, image.original));
+                return showsRawObjects.slice(0, 51).map(({ name, id, image }) => new TvShow(name, id, image.original));
             });
     };
 
+    const searchShow = (term) => {
+        return fetch(`https://api.tvmaze.com/search/shows?q=${term}`)
+            .then(function (res) {
+                return res.json();
+            })
+            .then(function (showsRawObjects) {
+                return showsRawObjects.map(({ show }) => {
+                    const { name, id, image } = show;
+                    const imageToUse = image ? image.original : '';
+                    return new TvShow(name, id, imageToUse);
+                });
+            });
+    };
 
-
-
-    return { getShows }
+    return { getShows, searchShow };
 })();
