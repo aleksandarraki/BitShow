@@ -1,18 +1,77 @@
 (function (data, ui) {
-    const searchInput = document.querySelector('#search-input');
-
-    const onSearch = (e) => {
-        const term = e.target.value;
-        data.searchShow(term).then((shows) => {
-            ui.clearDropdown();
-            ui.renderSearchDropdown(shows);
+    const textSearch = $('#textsearch');
+    const home = $('#home-button');
+    const mainCOntentEl = $("#main-content");
+    let searchText = '';
+    // let isDetail = false;
+    const getData = () => {
+        data.getShows().then((shows) => {
+            ui.renderHomePage(shows);
         });
-    };
+    }
 
-    data.getShows().then((shows) => {
-        ui.renderHomePage(shows);
+
+
+    getData();
+
+
+    textSearch.keyup(function () {
+        searchText = this.value;
+    })
+
+    home.on('click', function (event) {
+        getData();
+        textSearch.val('')
+        // if (isDetail) {
+        //     ui.clearContent(true);
+        //     getData();
+        //     textSearch.val('')
+        //     isDetail = false;
+        // }
     });
 
-    searchInput.addEventListener('keyup', onSearch);
-    searchInput.addEventListener('blur', ui.clearDropdown);
+    mainCOntentEl.on("click", function (event) {
+        console.log("cao");
+        const targetEl = event.target.parentElement;
+        if (!targetEl.classList.contains("show-item")) {
+            return;
+        }
+        const id = targetEl.getAttribute("id");
+        console.log(id);
+        data.getShowDetail(id).then(show => {
+            ui.renderDetailPage(show);
+            isDetail = true;
+        })
+    })
+
+
+    textSearch.autocomplete({
+        source: function (request, response) {
+            data.searchShow(searchText).then((shows) => {
+                response($.map(shows, function (item) {
+                    return {
+                        value: item.id,
+                        label: item.name
+                    }
+                }))
+            });
+        },
+        select: function (event, uiElement) {
+            data.getShowDetail(uiElement.item.value).then(show => {
+                ui.renderDetailPage(show);
+                // isDetail = true;
+            })
+
+            uiElement.item.value = uiElement.item.label;
+            return uiElement.item.label;
+        }
+    });
+
+
+
+
+
+
+
+
 })(dataModule, uiModule);
