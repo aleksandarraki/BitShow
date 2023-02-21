@@ -69,6 +69,7 @@ const uiModule = (function () {
         ${pageImg}
         ${seasonCastDiv}
         </div>
+        <h3>Show Details</h3>
         <div clas="show-detail"><p>${showDetail.summary}</p></div>
         </div>`
         detail.innerHTML = mainDiv;

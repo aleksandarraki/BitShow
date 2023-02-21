@@ -82,7 +82,8 @@ footer {
   color: white; }
 
 .container .cover img {
-  width: 500px; }
+  width: 500px;
+  height: 700px; }
 .container h1 {
   text-align: center; }
 
