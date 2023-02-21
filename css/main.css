@@ -74,8 +74,16 @@
   height: 400px;
   cursor: pointer; }
 
+.show-item p {
+  cursor: pointer; }
+
 footer {
   background-color: #343a40;
   color: white; }
+
+.container .cover img {
+  width: 500px; }
+.container h1 {
+  text-align: center; }
 
 /*# sourceMappingURL=main.css.map */

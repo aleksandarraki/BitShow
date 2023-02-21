@@ -22,22 +22,18 @@
     home.on('click', function (event) {
         getData();
         textSearch.val('')
-        // if (isDetail) {
-        //     ui.clearContent(true);
-        //     getData();
-        //     textSearch.val('')
-        //     isDetail = false;
-        // }
+
     });
 
     mainCOntentEl.on("click", function (event) {
-        console.log("cao");
+        // console.log("cao");
         const targetEl = event.target.parentElement;
+        console.log(event.target.parentElement);
         if (!targetEl.classList.contains("show-item")) {
             return;
         }
         const id = targetEl.getAttribute("id");
-        console.log(id);
+        // console.log(id);
         data.getShowDetail(id).then(show => {
             ui.renderDetailPage(show);
             isDetail = true;
@@ -66,6 +62,8 @@
             return uiElement.item.label;
         }
     });
+
+
 
 
 

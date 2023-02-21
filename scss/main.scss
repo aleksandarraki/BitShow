@@ -74,9 +74,7 @@
 
 }
 
-// #main {
-//     width: 80%;
-// }
+
 
 #main-content {
     // height: 90vh;
@@ -110,7 +108,21 @@
     cursor: pointer;
 }
 
+.show-item p {
+    cursor: pointer;
+}
+
 footer {
     background-color: #343a40;
     color: white;
+}
+
+.container {
+    .cover img {
+        width: 500px;
+    }
+
+    h1 {
+        text-align: center;
+    }
 }
