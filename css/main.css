@@ -1,7 +1,12 @@
 #wrapper {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+  #wrapper h1 {
+    font-weight: bolder; }
+  #wrapper h3 {
+    font-weight: bolder; }
 
 #header {
   background-color: #343a40;

@@ -3,7 +3,6 @@
     const home = $('#home-button');
     const mainCOntentEl = $("#main-content");
     let searchText = '';
-    // let isDetail = false;
     const getData = () => {
         data.getShows().then((shows) => {
             ui.renderHomePage(shows);
