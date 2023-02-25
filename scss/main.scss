@@ -100,6 +100,7 @@
     flex-direction: column;
     align-self: stretch;
 
+
 }
 
 
@@ -107,7 +108,7 @@
 #show-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 30px;
     justify-content: center;
     align-items: center;
     width: 80%;
@@ -115,6 +116,11 @@
 
 .show-item {
     width: 300px;
+}
+
+.show-item:hover {
+    width: 320px;
+    box-shadow: 5px 10px 12px 10px rgb(143, 143, 187);
 }
 
 .show-item img {
@@ -126,6 +132,10 @@
 
 .show-item p {
     cursor: pointer;
+    color: rgb(8, 119, 156);
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bolder;
 }
 
 footer {
